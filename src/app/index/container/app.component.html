@@ -9,12 +9,23 @@
       <a routerLink="products" routerLinkActive="active">Products</a>
     </div>
 
-    <div class="app__container">
-      <router-outlet></router-outlet>
+    <!-- <pre>
+      {{loaderService.isLoading | async}}
+    </pre> -->
+
+    <div class="app__container" style="min-height: 650px;">
+      <div *ngIf="!(loaderService.isLoading | async)">
+        <router-outlet></router-outlet>
+      </div>
+      <div *ngIf="loaderService.isLoading | async">
+        <app-spinner></app-spinner>
+      </div>
     </div>
 
+
+
     <div class="app__footer">
-      <p>&copy; Ultimate Pizza Inc.</p>
+      <p>&copy; Pizza Inc.</p>
     </div>
   </div>
 

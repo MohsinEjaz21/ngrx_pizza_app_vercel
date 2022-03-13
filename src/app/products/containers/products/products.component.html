@@ -1,9 +1,7 @@
 <div class="products">
 
   <div class="products__new">
-    <a
-      class="btn btn__ok"
-      routerLink="./new">
+    <a class="btn btn__ok" routerLink="./new">
       New Pizza
     </a>
   </div>
@@ -14,11 +12,10 @@
       No pizzas, add one to get started.
     </div>
 
-    <app-pizza-item
-      *ngFor="let pizza of (pizzas$ | async)"
-      [pizza]="pizza">
+    <app-pizza-item *ngFor="let pizza of (pizzas$ | async)" [pizza]="pizza">
     </app-pizza-item>
 
   </div>
 
 </div>
+

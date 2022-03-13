@@ -21,7 +21,7 @@
     a {
       color: #fff;
       padding: 15px 35px;
-      font-family: 'cornerstone', serif;
+      font-family: "cornerstone", serif;
       &.active {
         background: #921217;
       }
@@ -35,6 +35,8 @@
     border-radius: 4px;
   }
   &__container {
+    // max-height: 650px;
+    position: relative;
     padding: 35px;
   }
   &__footer {

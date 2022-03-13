@@ -1,30 +1,28 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-
-import { ProductsRoutingModule } from '@products/products-routing.module';
-
-import { reducers, effects } from '@products/store';
+import { StoreModule } from '@ngrx/store';
 import { components } from '@products/components';
 import { containers } from '@products/containers';
-import { providers } from '@products/services';
 import { guards } from '@products/guards';
+import { ProductsRoutingModule } from '@products/products-routing.module';
+import { providers } from '@products/services';
+import { effects, reducers } from '@products/store';
+
+
+
 
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule,
     ProductsRoutingModule,
     StoreModule.forFeature('products', reducers),
     EffectsModule.forFeature(effects)
   ],
-  providers: [ ...providers, ...guards ],
+  providers: [...providers, ...guards],
   declarations: [
     ...containers,
     ...components
@@ -34,4 +32,4 @@ import { guards } from '@products/guards';
     ...components
   ],
 })
-export class ProductsModule {}
+export class ProductsModule { }

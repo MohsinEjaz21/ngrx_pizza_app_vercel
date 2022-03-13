@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from '@app/spinner/spinner.service';
 
 
 @Component({
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent { }
+export class AppComponent {
+  constructor(public loaderService: LoaderService) {
+  }
+
+}
