@@ -6,14 +6,14 @@
 
   <div class="app__content">
     <div class="app__nav">
-      <a routerLink="products" routerLinkActive="active">Products</a>
+      <a routerLink="products" routerLinkActive="active">Pizzas</a>
     </div>
 
     <!-- <pre>
       {{loaderService.isLoading | async}}
     </pre> -->
 
-    <div class="app__container" style="min-height: 650px;">
+    <div class="app__container">
       <div *ngIf="!(loaderService.isLoading | async)">
         <router-outlet></router-outlet>
       </div>
