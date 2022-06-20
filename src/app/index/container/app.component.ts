@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { LoaderService } from '@app/spinner/spinner.service';
+import { Router } from '@angular/router';
+import { SpinnerService } from '@app/spinner/spinner.service';
 
 
 @Component({
@@ -8,7 +9,15 @@ import { LoaderService } from '@app/spinner/spinner.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public loaderService: LoaderService) {
+
+  get isCurrentRouteProduct() {
+    return this.router.url === '/products';
   }
+  constructor(public loaderService: SpinnerService, private router: Router) {
+    // check current route is products
+    if (this.router.url === '/products') {
+    }
+  }
+
 
 }

@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-import { map } from 'rxjs/operators';
-
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Pizza } from '@products/models/pizza.model';
 import { Topping } from '@products/models/topping.model';
+import { map } from 'rxjs/operators';
+
+
 
 
 @Component({
@@ -30,7 +30,7 @@ export class PizzaFormComponent implements OnChanges {
     toppings: [[]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   get nameControl(): FormControl {
     return this.form.get('name') as FormControl;
@@ -55,19 +55,20 @@ export class PizzaFormComponent implements OnChanges {
 
   createPizza(form: FormGroup): void {
     const { value, valid } = form;
-
-    if (valid) this.create.emit(value);
+    if (valid) {
+      this.create.emit(value);
+    } else {
+      this.nameControl.markAsTouched()
+    }
   }
 
   updatePizza(form: FormGroup): void {
     const { value, valid, touched } = form;
-
     if (touched && valid) this.update.emit({ ...this.pizza, ...value });
   }
 
   removePizza(form: FormGroup): void {
     const { value } = form;
-
     this.remove.emit({ ...this.pizza, ...value });
   }
 
