@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { SpinnerService } from '@app/spinner/spinner.service';
 
 
@@ -10,13 +10,10 @@ import { SpinnerService } from '@app/spinner/spinner.service';
 })
 export class AppComponent {
 
-  get isCurrentRouteProduct() {
-    return this.router.url === '/products';
+  get showBackBtn() {
+    return window.location.href.includes('/products/')
   }
-  constructor(public loaderService: SpinnerService, private router: Router) {
-    // check current route is products
-    if (this.router.url === '/products') {
-    }
+  constructor(public loaderService: SpinnerService, private router: ActivatedRoute) {
   }
 
 

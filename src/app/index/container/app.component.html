@@ -8,7 +8,7 @@
 
 
     <div class="app__nav">
-      <a *ngIf="!isCurrentRouteProduct" id="app__nav__goBack" routerLink="products" routerLinkActive="active">
+      <a *ngIf="showBackBtn" id="app__nav__goBack" routerLink="products" routerLinkActive="active">
         <img src="/assets/icons/back-icon-30.png" alt="Back"> BACK
       </a>
       <a routerLink="products" routerLinkActive="active">Pizzas</a>
